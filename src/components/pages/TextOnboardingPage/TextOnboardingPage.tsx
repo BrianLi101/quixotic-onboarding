@@ -21,8 +21,8 @@ const TextOnboardingPage: React.FC = () => {
       <VFlex style={{ flex: 1, minWidth: 300 }}>
         {Instructions.map((instruction) => {
           return (
-            <HFlex>
-              <Body style={{ width: 20 }}>{instruction.number}.</Body>
+            <HFlex style={{ marginBottom: 5 }}>
+              <Body style={{ minWidth: 20 }}>{instruction.number}.</Body>
               {instruction.details}
             </HFlex>
           );
@@ -35,7 +35,7 @@ const TextOnboardingPage: React.FC = () => {
     <div>
       <Container>
         <VFlex>
-          <HFlex>
+          <HFlex style={{ alignItems: 'center' }}>
             <LogoImage src={QuixoticLogo} />
             <Title style={{ flex: 1 }}>
               How to connect to Optimistic Ethereum
@@ -48,7 +48,8 @@ const TextOnboardingPage: React.FC = () => {
           </Title>
           <HFlex style={{ flexWrap: 'wrap' }}>
             {renderInstructions()}
-            <HFlex>
+            <div style={{ width: 20 }} />
+            <HFlex style={{ marginTop: 20 }}>
               <MetaMaskImage src={MetaMaskNetworks} />
               <MetaMaskImage src={MetaMaskOptimism} />
             </HFlex>

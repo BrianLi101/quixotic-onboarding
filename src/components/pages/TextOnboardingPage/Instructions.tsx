@@ -1,9 +1,32 @@
-import { Container, HFlex, VFlex, LogoImage, Title, Body } from './styled';
+import { QUIXOTIC_RED } from '../../../resources/Constants';
+
+import {
+  Container,
+  HFlex,
+  VFlex,
+  LogoImage,
+  Title,
+  Body,
+  RedSpan,
+} from './styled';
 
 interface Instruction {
   number: number;
   details: React.ReactNode;
 }
+
+const Linkify = (text: string, url?: string) => {
+  return (
+    <a
+      href={url || text}
+      target={'_blank'}
+      rel="noreferrer"
+      style={{ color: QUIXOTIC_RED }}
+    >
+      {text}
+    </a>
+  );
+};
 
 export const Instructions: Instruction[] = [
   {
@@ -35,15 +58,27 @@ export const Instructions: Instruction[] = [
     details: (
       <VFlex>
         <Body>
-          Enter the following network details or click here to auto-populate
-          them in MetaMask.
+          Enter the following network details or{' '}
+          {Linkify('click here', 'https://chainid.link/?network=optimism')} to
+          auto-populate them in MetaMask.
         </Body>
-        <VFlex style={{ marginLeft: 20 }}>
-          <Body>Network Name: Optimistic Ethereum</Body>
-          <Body>New RPC URL: https://mainnet.optimisim.io</Body>
-          <Body>Chain ID: 10</Body>
-          <Body>Currency Symbol: ETH</Body>
-          <Body>Block Explorer URL: https://optimistic.etherscan.io</Body>
+        <VFlex style={{ marginLeft: 20, marginTop: 10, marginBottom: 10 }}>
+          <Body>
+            Network Name: <RedSpan>Optimistic Ethereum</RedSpan>
+          </Body>
+          <Body>
+            New RPC URL: <RedSpan>https://mainnet.optimisim.io</RedSpan>
+          </Body>
+          <Body>
+            Chain ID: <RedSpan>10</RedSpan>
+          </Body>
+          <Body>
+            Currency Symbol: <RedSpan>ETH</RedSpan>
+          </Body>
+          <Body>
+            Block Explorer URL:{' '}
+            <RedSpan>https://optimistic.etherscan.io</RedSpan>
+          </Body>
         </VFlex>
       </VFlex>
     ),

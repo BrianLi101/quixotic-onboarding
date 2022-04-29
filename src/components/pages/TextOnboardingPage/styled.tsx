@@ -23,7 +23,8 @@ export const VFlex = styled.div`
 `;
 
 export const LogoImage = styled.img`
-  width: 100px;
+  width: 120px;
+  height: 40px;
 `;
 
 export const MetaMaskImage = styled.img`
@@ -41,4 +42,7 @@ export const Body = styled.p`
   margin: 0px;
   padding: 0px;
   text-align: left;
+`;
+export const RedSpan = styled.span`
+  color: ${QUIXOTIC_RED};
 `;
